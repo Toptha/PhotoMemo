@@ -1,7 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F5DEB3">
+    android:background="#FFF8E7">
 
     <TextView
         android:id="@+id/welcomeText"
@@ -10,6 +10,20 @@
         android:text="Welcome to PhotoMemo!"
         android:textColor="#FFA500"
         android:textSize="24sp"
-        android:layout_centerInParent="true"
-        android:textStyle="bold"/>
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="120dp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/logoutButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Logout"
+        android:layout_below="@id/welcomeText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/rounded_button"
+        android:textColor="#FFFFFF"
+        android:paddingHorizontal="24dp"
+        android:paddingVertical="10dp"/>
 </RelativeLayout>

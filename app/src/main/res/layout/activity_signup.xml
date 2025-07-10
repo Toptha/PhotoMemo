@@ -1,7 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F5DEB3">
+    android:background="#FFF8E7">
 
     <TextView
         android:id="@+id/signupTitle"
@@ -10,9 +10,38 @@
         android:text="Sign Up"
         android:textColor="#FFA500"
         android:textSize="28sp"
+        android:textStyle="bold"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="60dp"
-        android:textStyle="bold"/>
+        android:layout_alignParentTop="true"/>
+
+    <EditText
+        android:id="@+id/signupEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/signupTitle"
+        android:layout_marginTop="30dp"
+        android:layout_marginHorizontal="32dp"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:background="@drawable/rounded_edittext"
+        android:padding="12dp"
+        android:textColor="#000000"
+        android:textColorHint="#888888"/>
+
+    <EditText
+        android:id="@+id/signupPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/signupEmail"
+        android:layout_marginTop="20dp"
+        android:layout_marginHorizontal="32dp"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:background="@drawable/rounded_edittext"
+        android:padding="12dp"
+        android:textColor="#000000"
+        android:textColorHint="#888888"/>
 
     <TextView
         android:id="@+id/backToLoginText"
@@ -21,18 +50,21 @@
         android:text="← Back to Login"
         android:textColor="#FFA500"
         android:textSize="16sp"
-        android:layout_below="@id/signupTitle"
+        android:layout_below="@id/signupPassword"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"/>
+        android:layout_marginTop="20dp"/>
 
     <Button
         android:id="@+id/signupNowButton"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Sign Up Now"
         android:layout_below="@id/backToLoginText"
-        android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:backgroundTint="#FFA500"
-        android:textColor="#FFFFFF"/>
+        android:layout_marginHorizontal="64dp"
+        android:background="@drawable/rounded_button"
+        android:backgroundTint="@null"
+        android:textColor="#FFFFFF"
+        android:minHeight="48dp"
+        android:paddingVertical="12dp"/>
 </RelativeLayout>
