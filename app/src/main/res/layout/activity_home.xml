@@ -1,30 +1,128 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/noteBoard"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFF8E7">
+    android:background="#FFF8E7"
+    android:padding="24dp">
 
-    <TextView
-        android:id="@+id/welcomeText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Welcome to PhotoMemo!"
-        android:textColor="#FFA500"
-        android:textSize="24sp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="120dp"
-        android:textStyle="bold" />
-
-    <Button
-        android:id="@+id/logoutButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Logout"
-        android:layout_below="@id/welcomeText"
-        android:layout_centerHorizontal="true"
+    <LinearLayout
+        android:id="@+id/stickyCapture"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_alignParentStart="true"
         android:layout_marginTop="32dp"
-        android:background="@drawable/rounded_button"
-        android:textColor="#FFFFFF"
-        android:paddingHorizontal="24dp"
-        android:paddingVertical="10dp"
-        android:minHeight="48dp" />
+        android:layout_marginStart="8dp"
+        android:orientation="vertical"
+        android:background="@drawable/sticky_yellow"
+        android:rotation="-6"
+        android:elevation="6dp"
+        android:padding="12dp"
+        android:clickable="true"
+        android:focusable="true">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_camera" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Let's capture\na new memory"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="#333"
+            android:paddingTop="8dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/stickyWrite"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="12dp"
+        android:orientation="vertical"
+        android:background="@drawable/sticky_pink"
+        android:rotation="4"
+        android:elevation="6dp"
+        android:padding="12dp"
+        android:clickable="true"
+        android:focusable="true">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_edit" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="What's on\nyour mind?"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="#333"
+            android:paddingTop="8dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/stickySaved"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="220dp"
+        android:orientation="vertical"
+        android:background="@drawable/sticky_blue"
+        android:rotation="-3"
+        android:elevation="6dp"
+        android:padding="12dp"
+        android:clickable="true"
+        android:focusable="true">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_folder" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Saved\nMemories"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="#333"
+            android:paddingTop="8dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/stickyProfile"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="32dp"
+        android:layout_marginStart="24dp"
+        android:orientation="vertical"
+        android:background="@drawable/sticky_green"
+        android:rotation="6"
+        android:elevation="6dp"
+        android:padding="12dp"
+        android:clickable="true"
+        android:focusable="true">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_profile" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Profile"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="#333"
+            android:paddingTop="8dp"/>
+    </LinearLayout>
+
 </RelativeLayout>
