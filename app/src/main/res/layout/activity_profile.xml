@@ -1,0 +1,80 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fdf3d0"
+    android:padding="0dp">
+
+    <TextView
+        android:id="@+id/textFullName"
+        android:layout_width="160dp"
+        android:layout_height="150dp"
+        android:text="Full Name:\nPreetham S"
+        android:textColor="#333"
+        android:background="@drawable/sticky_blue"
+        android:textSize="16sp"
+        android:rotation="-10"
+        android:padding="12dp"
+        android:elevation="6dp"
+        android:translationX="32dp"
+        android:translationY="64dp" />
+
+    <TextView
+        android:id="@+id/textEmail"
+        android:layout_width="160dp"
+        android:layout_height="150dp"
+        android:text="Email:\npreetham@email.com"
+        android:textColor="#333"
+        android:background="@drawable/sticky_yellow"
+        android:textSize="15sp"
+        android:rotation="12"
+        android:padding="12dp"
+        android:elevation="6dp"
+        android:translationX="200dp"
+        android:translationY="100dp" />
+
+    <TextView
+        android:id="@+id/textPhone"
+        android:layout_width="150dp"
+        android:layout_height="130dp"
+        android:text="Phone:\n+91 1234567890"
+        android:textColor="#333"
+        android:background="@drawable/sticky_pink"
+        android:textSize="15sp"
+        android:rotation="-7"
+        android:padding="10dp"
+        android:elevation="6dp"
+        android:translationX="80dp"
+        android:translationY="250dp" />
+
+    <TextView
+        android:id="@+id/textGender"
+        android:layout_width="140dp"
+        android:layout_height="130dp"
+        android:text="Gender:\nMale"
+        android:textColor="#333"
+        android:background="@drawable/sticky_green"
+        android:textSize="15sp"
+        android:rotation="5"
+        android:padding="10dp"
+        android:elevation="6dp"
+        android:translationX="220dp"
+        android:translationY="320dp" />
+
+    <TextView
+        android:id="@+id/btnLogout"
+        android:layout_width="160dp"
+        android:layout_height="140dp"
+        android:text="Logout"
+        android:textStyle="bold"
+        android:textColor="#000"
+        android:gravity="center"
+        android:background="@drawable/sticky_orange"
+        android:textSize="18sp"
+        android:rotation="-15"
+        android:padding="16dp"
+        android:elevation="8dp"
+        android:translationX="140dp"
+        android:translationY="480dp"
+        android:clickable="true"
+        android:focusable="true" />
+</FrameLayout>

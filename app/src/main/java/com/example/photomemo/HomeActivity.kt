@@ -3,7 +3,6 @@ package com.example.photomemo
 import android.content.Intent
 import android.os.Bundle
 import android.provider.MediaStore
-import android.provider.Settings
 import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -28,22 +27,15 @@ class HomeActivity : AppCompatActivity() {
         }
 
         stickyWrite.setOnClickListener {
-            val intent = Intent(this, WriteActivity::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, WriteActivity::class.java))
         }
 
         stickySaved.setOnClickListener {
-            val intent = Intent(this, SavedEntriesActivity::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, SavedEntriesActivity::class.java))
         }
 
         stickyProfile.setOnClickListener {
-            val intent = Intent(Settings.ACTION_SETTINGS)
-            if (intent.resolveActivity(packageManager) != null) {
-                startActivity(intent)
-            } else {
-                Toast.makeText(this, "No app found to handle profile intent!", Toast.LENGTH_SHORT).show()
-            }
+            startActivity(Intent(this, ProfileActivity::class.java))
         }
     }
 }
