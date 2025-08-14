@@ -1,6 +1,5 @@
 package com.example.photomemo
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.*
@@ -13,9 +12,20 @@ class MainActivity : AppCompatActivity() {
     private lateinit var loginButton: Button
     private lateinit var newUserText: TextView
 
+    private lateinit var dbHelper: DatabaseHelper
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        dbHelper = DatabaseHelper(this)
+        val prefs = getSharedPreferences("PhotoMemoPrefs", MODE_PRIVATE)
+
+        if (prefs.getBoolean("isLoggedIn", false)) {
+            startActivity(Intent(this, HomeActivity::class.java))
+            finish()
+            return
+        }
 
         emailInput = findViewById(R.id.emailInput)
         passwordInput = findViewById(R.id.passwordInput)
@@ -31,11 +41,12 @@ class MainActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            val sharedPref = getSharedPreferences("UserPrefs", Context.MODE_PRIVATE)
-            val storedPassword = sharedPref.getString("${email}_password", null)
+            if (dbHelper.checkUser(email, password)) {
+                prefs.edit()
+                    .putBoolean("isLoggedIn", true)
+                    .putString("loggedInUserEmail", email)
+                    .apply()
 
-            if (storedPassword != null && password == storedPassword) {
-                sharedPref.edit().putString("loggedInUserEmail", email).apply()
                 Toast.makeText(this, "Login successful!", Toast.LENGTH_SHORT).show()
                 startActivity(Intent(this, HomeActivity::class.java))
                 finish()

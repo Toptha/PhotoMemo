@@ -1,6 +1,5 @@
 package com.example.photomemo
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.*
@@ -17,9 +16,13 @@ class SignupActivity : AppCompatActivity() {
     private lateinit var signupButton: Button
     private lateinit var backToLoginText: TextView
 
+    private lateinit var dbHelper: DatabaseHelper
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup)
+
+        dbHelper = DatabaseHelper(this)
 
         fullNameInput = findViewById(R.id.fullNameEditText)
         phoneInput = findViewById(R.id.phoneEditText)
@@ -52,19 +55,21 @@ class SignupActivity : AppCompatActivity() {
 
             val gender = findViewById<RadioButton>(genderId).text.toString()
 
-            val sharedPref = getSharedPreferences("UserPrefs", Context.MODE_PRIVATE)
-            with(sharedPref.edit()) {
-                putString("${email}_password", password)
-                putString("${email}_fullName", fullName)
-                putString("${email}_phone", phone)
-                putString("${email}_gender", gender)
-                putString("loggedInUserEmail", email)
-                apply()
-            }
+            val success = dbHelper.insertUser(email, password, fullName, phone, gender)
 
-            Toast.makeText(this, "Signup successful!", Toast.LENGTH_SHORT).show()
-            startActivity(Intent(this, MainActivity::class.java))
-            finish()
+            if (success) {
+                val prefs = getSharedPreferences("PhotoMemoPrefs", MODE_PRIVATE)
+                prefs.edit()
+                    .putBoolean("isLoggedIn", true)
+                    .putString("loggedInUserEmail", email)
+                    .apply()
+
+                Toast.makeText(this, "Signup successful!", Toast.LENGTH_SHORT).show()
+                startActivity(Intent(this, HomeActivity::class.java))
+                finish()
+            } else {
+                Toast.makeText(this, "Error: Email already exists", Toast.LENGTH_SHORT).show()
+            }
         }
 
         backToLoginText.setOnClickListener {

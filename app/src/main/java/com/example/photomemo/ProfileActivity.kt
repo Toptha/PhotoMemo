@@ -1,6 +1,5 @@
 package com.example.photomemo
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.TextView
@@ -13,9 +12,13 @@ class ProfileActivity : AppCompatActivity() {
     private lateinit var textGender: TextView
     private lateinit var btnLogout: TextView
 
+    private lateinit var dbHelper: DatabaseHelper
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
+
+        dbHelper = DatabaseHelper(this)
 
         textFullName = findViewById(R.id.textFullName)
         textEmail = findViewById(R.id.textEmail)
@@ -23,29 +26,34 @@ class ProfileActivity : AppCompatActivity() {
         textGender = findViewById(R.id.textGender)
         btnLogout = findViewById(R.id.btnLogout)
 
-        val sharedPrefs = getSharedPreferences("UserPrefs", Context.MODE_PRIVATE)
-        val email = sharedPrefs.getString("loggedInUserEmail", null)
+        val prefs = getSharedPreferences("PhotoMemoPrefs", MODE_PRIVATE)
+        val email = prefs.getString("loggedInUserEmail", null)
 
         if (email != null) {
-            val fullName = sharedPrefs.getString("${email}_fullName", "N/A")
-            val phone = sharedPrefs.getString("${email}_phone", "N/A")
-            val gender = sharedPrefs.getString("${email}_gender", "N/A")
-
-            textFullName.text = "Full Name:\n $fullName"
-            textEmail.text = "Email:\n $email"
-            textPhone.text = "Phone:\n +91 $phone"
-            textGender.text = "Gender:\n $gender"
+            val user = dbHelper.getUserDetails(email)
+            if (user != null) {
+                textFullName.text = "Full Name:\n${user.fullName}"
+                textEmail.text = "Email:\n$email"
+                textPhone.text = "Phone:\n+91 ${user.phone}"
+                textGender.text = "Gender:\n${user.gender}"
+            } else {
+                setNA()
+            }
         } else {
-            textFullName.text = "Full Name:\nN/A"
-            textEmail.text = "Email:\nN/A"
-            textPhone.text = "Phone:\nN/A"
-            textGender.text = "Gender:\nN/A"
+            setNA()
         }
 
         btnLogout.setOnClickListener {
-            sharedPrefs.edit().clear().apply()
+            prefs.edit().clear().apply()
             startActivity(Intent(this, MainActivity::class.java))
             finish()
         }
+    }
+
+    private fun setNA() {
+        textFullName.text = "Full Name:\nN/A"
+        textEmail.text = "Email:\nN/A"
+        textPhone.text = "Phone:\nN/A"
+        textGender.text = "Gender:\nN/A"
     }
 }

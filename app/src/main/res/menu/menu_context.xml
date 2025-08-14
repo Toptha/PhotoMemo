@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/context_pin"
+        android:title="📌 Pin to Diary" />
+    <item android:id="@+id/context_share"
+        android:title="📤 Share Memory" />
+    <item android:id="@+id/context_delete"
+        android:title="🗑 Remove" />
+</menu>

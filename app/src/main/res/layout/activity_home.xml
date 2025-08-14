@@ -1,128 +1,154 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/noteBoard"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#FFF8E7"
-    android:padding="24dp">
+    android:layout_height="match_parent">
 
-    <LinearLayout
-        android:id="@+id/stickyCapture"
-        android:layout_width="160dp"
-        android:layout_height="160dp"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="32dp"
-        android:layout_marginStart="8dp"
-        android:orientation="vertical"
-        android:background="@drawable/sticky_yellow"
-        android:rotation="-6"
-        android:elevation="6dp"
-        android:padding="12dp"
-        android:clickable="true"
-        android:focusable="true">
+    <!-- Sticky notes board -->
+    <RelativeLayout
+        android:id="@+id/noteBoard"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFF8E7"
+        android:padding="24dp">
 
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/ic_camera" />
+        <!-- Capture new memory sticky -->
+        <LinearLayout
+            android:id="@+id/stickyCapture"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="32dp"
+            android:layout_marginStart="8dp"
+            android:orientation="vertical"
+            android:background="@drawable/sticky_yellow"
+            android:rotation="-6"
+            android:elevation="6dp"
+            android:padding="12dp"
+            android:clickable="true"
+            android:focusable="true">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Let's capture\na new memory"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            android:textColor="#333"
-            android:paddingTop="8dp"/>
-    </LinearLayout>
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_camera" />
 
-    <LinearLayout
-        android:id="@+id/stickyWrite"
-        android:layout_width="160dp"
-        android:layout_height="160dp"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="12dp"
-        android:orientation="vertical"
-        android:background="@drawable/sticky_pink"
-        android:rotation="4"
-        android:elevation="6dp"
-        android:padding="12dp"
-        android:clickable="true"
-        android:focusable="true">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Let's capture\na new memory"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="#333"
+                android:paddingTop="8dp"/>
+        </LinearLayout>
 
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/ic_edit" />
+        <!-- Write new memo sticky -->
+        <LinearLayout
+            android:id="@+id/stickyWrite"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="12dp"
+            android:orientation="vertical"
+            android:background="@drawable/sticky_pink"
+            android:rotation="4"
+            android:elevation="6dp"
+            android:padding="12dp"
+            android:clickable="true"
+            android:focusable="true">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="What's on\nyour mind?"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            android:textColor="#333"
-            android:paddingTop="8dp"/>
-    </LinearLayout>
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_edit" />
 
-    <LinearLayout
-        android:id="@+id/stickySaved"
-        android:layout_width="160dp"
-        android:layout_height="160dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="220dp"
-        android:orientation="vertical"
-        android:background="@drawable/sticky_blue"
-        android:rotation="-3"
-        android:elevation="6dp"
-        android:padding="12dp"
-        android:clickable="true"
-        android:focusable="true">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="What's on\nyour mind?"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="#333"
+                android:paddingTop="8dp"/>
+        </LinearLayout>
 
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/ic_folder" />
+        <!-- Saved memories sticky -->
+        <LinearLayout
+            android:id="@+id/stickySaved"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="220dp"
+            android:orientation="vertical"
+            android:background="@drawable/sticky_blue"
+            android:rotation="-3"
+            android:elevation="6dp"
+            android:padding="12dp"
+            android:clickable="true"
+            android:focusable="true">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Saved\nMemories"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            android:textColor="#333"
-            android:paddingTop="8dp"/>
-    </LinearLayout>
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_folder" />
 
-    <LinearLayout
-        android:id="@+id/stickyProfile"
-        android:layout_width="160dp"
-        android:layout_height="160dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="32dp"
-        android:layout_marginStart="24dp"
-        android:orientation="vertical"
-        android:background="@drawable/sticky_green"
-        android:rotation="6"
-        android:elevation="6dp"
-        android:padding="12dp"
-        android:clickable="true"
-        android:focusable="true">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Saved\nMemories"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="#333"
+                android:paddingTop="8dp"/>
+        </LinearLayout>
 
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/ic_profile" />
+        <!-- Profile sticky -->
+        <LinearLayout
+            android:id="@+id/stickyProfile"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="80dp"
+            android:layout_marginStart="24dp"
+            android:orientation="vertical"
+            android:background="@drawable/sticky_green"
+            android:rotation="6"
+            android:elevation="6dp"
+            android:padding="12dp"
+            android:clickable="true"
+            android:focusable="true">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Profile"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            android:textColor="#333"
-            android:paddingTop="8dp"/>
-    </LinearLayout>
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_profile" />
 
-</RelativeLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Profile"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="#333"
+                android:paddingTop="8dp"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+
+
+    <!-- Bottom Navigation -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="#FFF3DC"
+        app:itemIconTint="@color/bottom_nav_color"
+        app:itemTextColor="@color/bottom_nav_color"
+        app:menu="@menu/menu_home"
+        app:labelVisibilityMode="labeled"
+        android:elevation="8dp" />
+
+</FrameLayout>
