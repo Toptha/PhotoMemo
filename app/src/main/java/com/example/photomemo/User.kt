@@ -1,6 +1,7 @@
 package com.example.photomemo
 
-data class User(
+data class
+User(
     val email: String,
     val password: String,
     val fullName: String,

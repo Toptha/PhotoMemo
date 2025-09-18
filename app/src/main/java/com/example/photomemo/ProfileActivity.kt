@@ -26,8 +26,8 @@ class ProfileActivity : AppCompatActivity() {
         textGender = findViewById(R.id.textGender)
         btnLogout = findViewById(R.id.btnLogout)
 
-        val prefs = getSharedPreferences("PhotoMemoPrefs", MODE_PRIVATE)
-        val email = prefs.getString("loggedInUserEmail", null)
+        val prefs = getSharedPreferences("user_session", MODE_PRIVATE)
+        val email = prefs.getString("email", null)
 
         if (email != null) {
             val user = dbHelper.getUserDetails(email)

@@ -1,8 +1,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/popup_edit"
-        android:title="✏ Edit Caption" />
-    <item android:id="@+id/popup_sticker"
-        android:title="💖 Add Sticker" />
-    <item android:id="@+id/popup_favorite"
-        android:title="⭐ Mark as Favorite" />
+    <item
+        android:id="@+id/popup_settings"
+        android:title="Trash" />
+    <item
+        android:id="@+id/popup_logout"
+        android:title="Logout" />
+    <item
+        android:id="@+id/popup_logs"
+        android:title="Logs" />
 </menu>
+
